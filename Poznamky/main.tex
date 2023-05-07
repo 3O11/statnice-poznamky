@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+
+\usepackage[czech]{babel}
+\usepackage{a4wide}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{blindtext}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{mleftright}
+\usepackage{subfig}
+
+% forcing footnotes to be at the very bottom
+\usepackage[bottom]{footmisc}
+
+\usepackage{hyperref}
+\usepackage{titlesec}
+%This has to be the last
+\usepackage{subfiles}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    right=20mm,
+    left=20mm,
+    top=30mm,
+    bottom=20mm,
+}
+
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Span}{span}
+
+\newtheoremstyle{nontheoremstyle}{1em}{1em}{}{}{\bfseries}{:}{.5em}{}
+\newtheoremstyle{theoremstyle}{1em}{1em}{\it}{}{\bfseries}{:}{.5em}{}
+
+\theoremstyle{nontheoremstyle}
+\newtheorem*{definition}{Definice}
+\newtheorem*{example}{Příklad}
+\renewenvironment{proof}{{\noindent\bfseries Důkaz:}}{\qed}
+\newtheorem*{intuition}{Intuice}
+\newtheorem*{remark}{Poznámka}
+\newtheorem*{consequence}{Důsledek}
+\newtheorem*{observation}{Pozorování}
+
+% ošklivý hack k tomu, aby environment 'definitionnodot' neměl na konci . nebo :
+% hodí se, když chceme Dělat něco jako „Definice (Riemannův integrál) je funkce...“
+\newtheoremstyle{nontheoremstylenodot}{1em}{1em}{}{}{\bfseries}{}{.3em}{}
+\theoremstyle{nontheoremstylenodot}
+\newtheorem*{definitionnodot}{Definice}
+
+\theoremstyle{theoremstyle}
+\newtheorem*{theorem}{Věta}
+\newtheorem*{lemma}{Tvrzení}
+
+\titleformat{\part} {\normalfont\fontsize{21}{21}\bfseries}{\thepart}{1em}{}
+\titleformat{\section} {\normalfont\fontsize{17}{15}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection} {\normalfont\fontsize{14}{15}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection} {\normalfont\fontsize{12}{15}\bfseries}{\thesubsubsection}{1em}{}
+
+\setlength{\headheight}{16pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\leftmark}
+\rhead{Poznámky ke státnicím}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Poznámky ke státnícím}
+
+
+        \vspace{3mm}
+        Letní semestr 2022/2023
+        
+        \vspace{1.5cm}
+            
+        \textbf{Viktor Soukup, Lukáš Salak}
+        
+        \vfill
+        \flushright
+        \normalsize
+        \today
+        
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+%\clearpage
+
+
+\part{Matematika}
+
+\subfile{Sections/Matematika/01-zaklady-diferencialniho-a-integralniho-poctu.tex}
+\subfile{Sections/Matematika/02-algebra-a-linearni-algebra.tex}
+\subfile{Sections/Matematika/03-diskretni-matematika.tex}
+\subfile{Sections/Matematika/04-teorie-grafu.tex}
+\subfile{Sections/Matematika/05-pravdepodobnost-a-statistika.tex}
+\subfile{Sections/Matematika/06-logika.tex}
+
+\part{Informatika}
+
+\subfile{Sections/Informatika/01-automaty-a-jazyky.tex}
+\subfile{Sections/Informatika/02-algoritmy-a-datove-struktury.tex}
+\subfile{Sections/Informatika/03-programovaci-jazyky.tex}
+\subfile{Sections/Informatika/04-architektura-pocitacu-a-operacnich-systemu.tex}
+
+\part{Specializace 6 - Počítačová grafika, vidění a vývoj her}
+
+\subfile{Sections/Spec06-Grafika/01-matematicka-analyza.tex}
+\subfile{Sections/Spec06-Grafika/02-zaklady-2d-pocitacove-grafiky.tex}
+\subfile{Sections/Spec06-Grafika/03-zaklady-3d-pocitacove-grafiky.tex}
+\subfile{Sections/Spec06-Grafika/04-fotorealisticka-grafika.tex}
+\subfile{Sections/Spec06-Grafika/05-zaklady-vedy-o-barvach.tex}
+\subfile{Sections/Spec06-Grafika/06-geometrie-pro-pocitacovou-grafiku.tex}
+
+\vfill
+\begin{center}
+\LARGE
+\textbf{The End}
+\end{center}
+
+\end{document}
